@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 200 18% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 18% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 18% 20%;
+
+    --primary: 173 78% 22%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 200 18% 20%;
+
+    --muted: 40 33% 95%;
+    --muted-foreground: 200 10% 46%;
+
+    --accent: 40 72% 58%;
+    --accent-foreground: 200 18% 14%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 173 78% 22%;
+
+    --radius: 0.75rem;
+
+    /* Custom dental tokens */
+    --dental-navy: 200 35% 18%;
+    --dental-charcoal: 200 18% 20%;
+    --dental-mint: 173 78% 22%;
+    --dental-mint-dark: 173 68% 18%;
+    --dental-blue: 173 60% 28%;
+    --dental-ice: 40 33% 97%;
+    --dental-gold: 40 72% 58%;
+    --dental-whatsapp: 142 70% 49%;
+    --dental-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --dental-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+    --dental-shadow-card: 0 4px 16px rgba(13, 115, 119, 0.06);
+    --dental-gradient-hero: linear-gradient(135deg, hsla(173, 78%, 22%, 0.88) 0%, hsla(40, 72%, 58%, 0.55) 100%);
+    --dental-gradient-section: linear-gradient(135deg, hsl(173, 78%, 22%) 0%, hsl(173, 50%, 32%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 30% 8%;
+    --foreground: 40 33% 95%;
+    --card: 200 30% 12%;
+    --card-foreground: 40 33% 95%;
+    --popover: 200 30% 12%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 173 78% 22%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 20% 16%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 200 20% 16%;
+    --muted-foreground: 200 15% 60%;
+    --accent: 40 72% 58%;
+    --accent-foreground: 200 18% 14%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 200 20% 18%;
+    --input: 200 20% 18%;
+    --ring: 173 78% 22%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24 px-4 md:px-8;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-[42px] font-bold text-dental-navy text-center mb-4;
+  }
+
+  .section-subheading {
+    @apply text-base md:text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .dental-card {
+    @apply bg-card rounded-xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1;
+    box-shadow: var(--dental-shadow-card);
+  }
+
+  .dental-card:hover {
+    box-shadow: var(--dental-shadow-lg);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-lg inline-flex items-center justify-center;
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(var(--dental-mint-dark));
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    @apply border-2 border-white text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center justify-center;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-white/100;
+    color: hsl(var(--dental-navy));
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 rounded-xl border border-white/20;
+    box-shadow: var(--dental-shadow-card);
+  }
+
+  .whatsapp-pulse {
+    animation: whatsapp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes whatsapp-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+}
